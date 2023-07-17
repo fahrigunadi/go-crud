@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Go CRUD | Create!</title>
+  </head>
+  <body>
+    <div class="container container-sm mt-5">
+        <h3>User Create</h3>
+
+        <a href="/users" class="btn btn-sm btn-primary">User List</a>
+        <hr>
+        
+        {{ if .message }}
+          <div class="alert alert-success">
+            {{ .message }}
+          </div>
+        {{ end }}
+
+
+        <form action="/users/add" method="post">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="{{ .user.Name }}" class="form-control {{ if .validation.Name }} is-invalid {{ end }}">
+            <div class="invalid-feedback">{{ .validation.Name }}</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" value="{{ .user.Username }}" class="form-control {{ if .validation.Username }} is-invalid {{ end }}">
+            <div class="invalid-feedback">{{ .validation.Username }}</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" value="{{ .user.Phone }}" class="form-control {{ if .validation.Phone }} is-invalid {{ end }}">
+            <div class="invalid-feedback">{{ .validation.Phone }}</div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+
+        </form>
+    </div>
+
+  </body>
+</html>
